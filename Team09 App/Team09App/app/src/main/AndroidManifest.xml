@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Team09App">
+        <activity android:name=".GoalNotification"></activity>
         <activity android:name=".SelectedGoal" />
         <activity android:name=".AddGoals" />
         <activity android:name=".MainActivity">

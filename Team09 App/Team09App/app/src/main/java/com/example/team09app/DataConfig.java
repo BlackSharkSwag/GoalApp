@@ -3,28 +3,30 @@ package com.example.team09app;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.google.gson.Gson;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class DataConfig{
-    List <GoalData> goals;
+    GoalDataList goals;
 
     public DataConfig() {
-        this.goals = new ArrayList<>();
-    }
-    public DataConfig(List<GoalData> goals) {
-        this.goals = goals;
+        this.goals = new GoalDataList();
     }
 
-    public void saveData(SharedPreferences sp){
-
+    public void saveData(Context context){
+        SharedPreferences sp = context.getSharedPreferences("Data", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        editor.put("Book", book_text);
-        editor.putString("Chapter", chapter_int);
-        editor.putString("Verse", verse_int);
-
+        Gson gson = new Gson();
+        String listGoals = gson.toJson(goals);
+        editor.putString("List_Data", listGoals);
+        editor.apply();
     }
-    public void loadData(){
-
+    public void loadData(Context context){
+        SharedPreferences sp = context.getSharedPreferences("Data", Context.MODE_PRIVATE);
+        Gson gson = new Gson();
+        String listData = sp.getString("List_Data", "");
+        goals = gson.fromJson(listData, GoalDataList.class); //converts json string to array list
     }
 }

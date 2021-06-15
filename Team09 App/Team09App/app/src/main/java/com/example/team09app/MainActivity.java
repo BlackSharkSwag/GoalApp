@@ -10,5 +10,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        DataConfig data = new DataConfig();
+        data.saveData(this);
+
+        for(GoalData goal:data.goals.data) { //load and access data
+            System.out.println(goal.getDate());
+        }
     }
 }

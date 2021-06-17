@@ -2,26 +2,26 @@ package com.example.team09app;
 
 //This class holds the goal data, not attached to an activity
 public class GoalData {
-    private Boolean completed;
+    //private Boolean completed;
     private String goal_name;
     private String description;
     private String date;
 
-    public GoalData(Boolean completed, String goal_name, String description, String date) {
-        this.completed = completed;
+    public GoalData(String goal_name, String description, String date) {
+        //this.completed = completed;
         this.goal_name = goal_name;
         this.description = description;
         this.date = date;
     }
 
-    public Boolean getCompleted() {
+    /*public Boolean getCompleted() {
         return completed;
     }
 
     public void setCompleted(Boolean completed) {
         this.completed = completed;
     }
-
+*/
     public String getGoal_name() {
         return goal_name;
     }

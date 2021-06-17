@@ -2,6 +2,7 @@ package com.example.team09app;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.widget.EditText;
 
 import com.google.gson.Gson;
 
@@ -13,7 +14,7 @@ public class DataConfig{
 
     public DataConfig() {
         this.goals = new GoalDataList();
-    }
+    } //creates framework for data
 
     public void saveData(Context context){
         SharedPreferences sp = context.getSharedPreferences("Data", Context.MODE_PRIVATE);

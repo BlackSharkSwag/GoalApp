@@ -11,8 +11,10 @@
         android:theme="@style/Theme.Team09App">
         <activity android:name=".GoalNotification"></activity>
         <activity android:name=".SelectedGoal" />
-        <activity android:name=".AddGoals" />
+        <activity android:name=".AddGoals"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

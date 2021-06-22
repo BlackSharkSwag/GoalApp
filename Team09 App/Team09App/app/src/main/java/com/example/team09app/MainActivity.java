@@ -15,14 +15,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button button = findViewById(R.id.button1);
+
+
+
         button.setOnClickListener(new View.OnClickListener() {
-                                      @Override
-                                      public void onClick(View v) {
-                                          openActivity2();
-
-
-
-                                      }
+            @Override
+            public void onClick(View v) {
+                openActivity2();
+            }
         });
 
 

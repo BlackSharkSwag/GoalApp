@@ -11,8 +11,10 @@ import java.util.List;
 
 public class DataConfig{
     GoalDataList goals;
+    private static final DataConfig instance = new DataConfig(); // singleton
+    public static DataConfig getInstance() { return instance; }
 
-    public DataConfig() {
+    private DataConfig() {
         this.goals = new GoalDataList();
     } //creates framework for data
 

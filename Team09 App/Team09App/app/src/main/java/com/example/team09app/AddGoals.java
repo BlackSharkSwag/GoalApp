@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.EditText;
 
 public class AddGoals extends AppCompatActivity {
@@ -24,14 +25,14 @@ public class AddGoals extends AppCompatActivity {
                 EditText editText2 = (EditText) findViewById(R.id.descriptionField);
                 String text2 = editText2.getText().toString();
 
-                EditText editText3 = (EditText) findViewById(R.id.calendarView);
-                String text3 = editText3.getText().toString();
+                CalendarView editText3 = (CalendarView) findViewById(R.id.calendarView);
+                Long text3 = editText3.getDate();
+                String dateString = text3.toString();
 
-                GoalData object = new GoalData(text, text2, text3);
-                object.setGoal_name(text);
-                object.setDescription(text2);
-                object.setDate(text3);
-
+                GoalData object = new GoalData(text, text2, dateString);
+                DataConfig.getInstance().goals.data.add(object);
+                DataConfig.getInstance().saveData(AddGoals.this);
+                finish();
             }
         });
 

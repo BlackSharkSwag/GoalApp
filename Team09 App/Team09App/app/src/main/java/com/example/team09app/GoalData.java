@@ -1,7 +1,9 @@
 package com.example.team09app;
 
+import java.io.Serializable;
+
 //This class holds the goal data, not attached to an activity
-public class GoalData {
+public class GoalData implements Serializable {
     //private Boolean completed;
     private String goal_name;
     private String description;

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -26,12 +27,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button button = findViewById(R.id.button1);
+
+        DataConfig.getInstance().loadData(this);
+
         recyclerView = findViewById(R.id.recyclerView);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         goals = new GoalDataList();
        // I am trying to send the data from our adapter to the recyclerview but I am sutck
-        adapter = new myRecyclerViewAdapter(List<GoalData>,goals);
+        adapter = new myRecyclerViewAdapter(this,DataConfig.getInstance().goals.data);
         recyclerView.setAdapter(adapter);
 
 
@@ -44,6 +48,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        adapter.setClickListener(new myRecyclerViewAdapter.ItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                GoalData goal = adapter.getItem(position);
+                openGoalSelect(goal);
+            }
+        });
 
         /*DataConfig data = new DataConfig();
         data.saveData(this);*/
@@ -52,10 +63,23 @@ public class MainActivity extends AppCompatActivity {
             System.out.println(goal.getDate());
         }*/
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume(); //always call the super
+        adapter.notifyDataSetChanged();
+    }
+
     public void openActivity2(){
         Intent intent;
         intent = new Intent(this, AddGoals.class);
         startActivity(intent);
+    }
 
+    public void openGoalSelect(GoalData goal){
+        Intent intent;
+        intent = new Intent(this, SelectedGoal.class);
+        intent.putExtra("Goal", goal);
+        startActivity(intent);
     }
 }

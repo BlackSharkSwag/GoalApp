@@ -12,12 +12,12 @@ import java.util.List;
 
 public class myRecyclerViewAdapter extends RecyclerView.Adapter<myRecyclerViewAdapter.ViewHolder> {
 
-    private List<String> mData;
+    private List<GoalData> mData;
     private LayoutInflater mInflater;
     private ItemClickListener mClickListener;
 
     // data is passed into the constructor
-    myRecyclerViewAdapter(Context context, List<String> data) {
+    myRecyclerViewAdapter(Context context, List<GoalData> data) {
         this.mInflater = LayoutInflater.from(context);
         this.mData = data;
     }
@@ -32,8 +32,9 @@ public class myRecyclerViewAdapter extends RecyclerView.Adapter<myRecyclerViewAd
     // binds the data to the TextView in each row
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        String animal = mData.get(position);
-        holder.myTextView.setText(animal);
+        GoalData animal = mData.get(position);
+        holder.myTextView.setText(animal.getGoal_name());
+        //holder.description.setText(animal.getDescription());
     }
 
     // total number of rows
@@ -47,10 +48,12 @@ public class myRecyclerViewAdapter extends RecyclerView.Adapter<myRecyclerViewAd
     //The ViewHolder is a wrapper around a View that contains the layout for an individual item in the list
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView myTextView;
+        //TextView description;
 
         ViewHolder(View itemView) {
             super(itemView);
             myTextView = itemView.findViewById(R.id.tvAnimalName);
+            //description = itemView.findViewById(R.id.textView5);
             itemView.setOnClickListener(this);
         }
 
@@ -61,7 +64,7 @@ public class myRecyclerViewAdapter extends RecyclerView.Adapter<myRecyclerViewAd
     }
 
     // convenience method for getting data at click position
-    String getItem(int id) {
+    GoalData getItem(int id) {
         return mData.get(id);
     }
 

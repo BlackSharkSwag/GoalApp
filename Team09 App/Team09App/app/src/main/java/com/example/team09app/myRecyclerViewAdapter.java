@@ -44,6 +44,7 @@ public class myRecyclerViewAdapter extends RecyclerView.Adapter<myRecyclerViewAd
 
 
     // stores and recycles views as they are scrolled off screen
+    //The ViewHolder is a wrapper around a View that contains the layout for an individual item in the list
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView myTextView;
 

@@ -84,7 +84,8 @@ public class SelectedGoal extends AppCompatActivity {
 
                 List<GoalData> dataList = DataConfig.getInstance().goals.data;
 
-                int i = 0;
+
+                /*int i = 0;
                 for (GoalData dataOrg : dataList) {
                     for (; i < dataList.size(); i++) {
                         if (data.getGoal_name().equals(dataOrg.getGoal_name()) && data.getDescription().equals(dataOrg.getDescription()) && data.getDate().equals(dataOrg.getDate())) {
@@ -94,11 +95,31 @@ public class SelectedGoal extends AppCompatActivity {
                     }
                 }
                 dataList.remove(i);
+
+
+
+
+
+
+                onBackPressed();
+                DataConfig.getInstance().saveData(SelectedGoal.this);*/
+                for (int i=0; i<dataList.size(); i++) {
+                    GoalData dataOrg = dataList.get(i);
+                    if (data.getGoal_name().equals(dataOrg.getGoal_name()) &&
+                            data.getDescription().equals(dataOrg.getDescription()) &&
+                            data.getDate().equals(dataOrg.getDate())) {
+                        dataList.remove(i);
+                        break;
+                    }}
+
+                onBackPressed();
+
                 DataConfig.getInstance().saveData(SelectedGoal.this);
 
                 finish();
                 Toast.makeText(SelectedGoal.this,"Goal deleted successfully",Toast.LENGTH_LONG).show();
             }
+
         });
 
         buttonBack.setOnClickListener(new View.OnClickListener() {

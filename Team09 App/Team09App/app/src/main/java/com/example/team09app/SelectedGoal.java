@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import java.util.Calendar;
 import java.util.List;
 
 //
@@ -75,6 +76,18 @@ public class SelectedGoal extends AppCompatActivity {
             }
         });
 
+        //long eventOccursOn;
+
+        goalDate.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            //show the selected date as a toast
+            @Override
+            public void onSelectedDayChange(CalendarView view, int year, int month, int day) {
+                Calendar c = Calendar.getInstance();
+                c.set(year, month, day);
+                view.setDate(c.getTimeInMillis());
+            }
+        });
+
         buttonDel.setOnClickListener(new View.OnClickListener() { // delete current goal
             @Override
             public void onClick(View v) {
@@ -113,7 +126,6 @@ public class SelectedGoal extends AppCompatActivity {
                     }}
 
                 onBackPressed();
-
                 DataConfig.getInstance().saveData(SelectedGoal.this);
 
                 finish();

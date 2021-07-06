@@ -94,8 +94,10 @@ public class SelectedGoal extends AppCompatActivity {
                     }
                 }
                 dataList.remove(i);
-                onBackPressed();
                 DataConfig.getInstance().saveData(SelectedGoal.this);
+
+                finish();
+                Toast.makeText(SelectedGoal.this,"Goal deleted successfully",Toast.LENGTH_LONG).show();
             }
         });
 

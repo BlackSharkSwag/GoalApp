@@ -34,7 +34,9 @@ public class MainActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         goals = new GoalDataList();
-       // I am trying to send the data from our adapter to the recyclerview but I am sutck
+        assert DataConfig.getInstance() != null;
+        assert DataConfig.getInstance().goals !=null;
+        assert DataConfig.getInstance().goals.data !=null;
         adapter = new myRecyclerViewAdapter(this,DataConfig.getInstance().goals.data);
         recyclerView.setAdapter(adapter);
 

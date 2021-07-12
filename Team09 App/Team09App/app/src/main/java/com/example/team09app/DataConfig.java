@@ -30,6 +30,8 @@ public class DataConfig{
         SharedPreferences sp = context.getSharedPreferences("Data", Context.MODE_PRIVATE);
         Gson gson = new Gson();
         String listData = sp.getString("List_Data", "");
-        goals = gson.fromJson(listData, GoalDataList.class); //converts json string to array list
+        if (!listData.equals("")) { // If we actually read something from shared preferences
+            goals = gson.fromJson(listData, GoalDataList.class); //converts json string to array list
+        }
     }
 }

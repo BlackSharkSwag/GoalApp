@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import java.util.Calendar;
 
-public class AddGoals extends AppCompatActivity {
+public class AddGoals extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,11 @@ public class AddGoals extends AppCompatActivity {
                     (this, 1, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             AlarmManager alarmManager = (AlarmManager) this.getSystemService(Context.ALARM_SERVICE);
             alarmManager.set(AlarmManager.RTC_WAKEUP,  0, pendingIntent);
+
+            //Start add notification
+            GoalNotification goalNotification = new GoalNotification();
+            goalNotification.addNotification();
+            //end
 
             finish();
             Toast.makeText(AddGoals.this,"Goal saved successfully",Toast.LENGTH_LONG).show();

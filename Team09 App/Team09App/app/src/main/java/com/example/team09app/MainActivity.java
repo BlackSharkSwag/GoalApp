@@ -60,12 +60,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        /*DataConfig data = new DataConfig();
-        data.saveData(this);*/
-
-/*        for(GoalData goal:data.goals.data) { //load and access data
-            System.out.println(goal.getDate());
-        }*/
     }
 
     //Channel Create Start

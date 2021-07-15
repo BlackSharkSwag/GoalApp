@@ -14,21 +14,6 @@ import android.widget.Button;
 
 public class GoalNotification {
 
-  /*  @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_goal_notification);
-
-        Button createNotification = findViewById(R.id.button2);
-
-        createNotification.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                addNotification();
-            }
-        });
-    }*/
-
     public void addNotification(Context ctx, String name, String description) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(ctx, "ChannelNotify")
                 .setSmallIcon(R.mipmap.ic_launcher_round)

@@ -16,14 +16,6 @@ public class GoalData implements Serializable {
         this.date = date;
     }
 
-    /*public Boolean getCompleted() {
-        return completed;
-    }
-
-    public void setCompleted(Boolean completed) {
-        this.completed = completed;
-    }
-*/
     public String getGoal_name() {
         return goal_name;
     }

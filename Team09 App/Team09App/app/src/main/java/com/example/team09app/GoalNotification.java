@@ -12,7 +12,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class GoalNotification extends AppCompatActivity {
+public class GoalNotification {
 
   /*  @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,21 +29,17 @@ public class GoalNotification extends AppCompatActivity {
         });
     }*/
 
-    GoalNotification(){
-        addNotification(); // Need to be here?
-    }
-
-    public void addNotification() {
-        NotificationCompat.Builder builder = new NotificationCompat.Builder(this)
+    public void addNotification(Context ctx, String name, String description) {
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(ctx, "ChannelNotify")
                 .setSmallIcon(R.mipmap.ic_launcher_round)
-                .setContentTitle("Testing")
-                .setContentText("Testing Two");
+                .setContentTitle(name)
+                .setContentText(description);
 
-        Intent notificationIntent = new Intent (this, MainActivity.class);
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent notificationIntent = new Intent (ctx, MainActivity.class);
+        PendingIntent contentIntent = PendingIntent.getActivity(ctx, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         builder.setContentIntent(contentIntent);
 
-        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager manager = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
         manager.notify(0, builder.build());
     }
 

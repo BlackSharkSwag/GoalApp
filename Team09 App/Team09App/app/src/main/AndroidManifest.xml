@@ -9,27 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Team09App">
-        <activity android:name=".GoalNotification"></activity>
+        <activity android:name=".GoalNotification" />
         <activity android:name=".SelectedGoal" />
-        <activity android:name=".AddGoals"
-            android:parentActivityName=".MainActivity"/>
+        <activity
+            android:name=".AddGoals"
+            android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <receiver
             android:name=".MyReceiver"
             android:enabled="true"
-            android:exported="false" >
-        </receiver>
+            android:exported="false"></receiver>
+
         <service
             android:name=".MyNewIntentService"
-            android:exported="false" >
-        </service>
+            android:exported="false"></service>
     </application>
 
 </manifest>

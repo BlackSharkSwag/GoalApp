@@ -46,7 +46,7 @@ public class AddGoals extends AppCompatActivity{
 
             //Start add notification
             GoalNotification goalNotification = new GoalNotification();
-            goalNotification.addNotification();
+            goalNotification.addNotification(this, text, text2);
             //end
 
             finish();
